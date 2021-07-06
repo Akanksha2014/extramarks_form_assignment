@@ -33,7 +33,8 @@
 		  		<div class="col-md-8">Skills :  <span th:text=${obj.skills}></span> </div>
 		  	</div>
 		  	<div class="row">
-		  		<div class="col-md-8">Image : <img class='img-thumbnail' th:src="@{'/img:/'+${obj.proimg}}" /></div>
+<!-- 		  		<div class="col-md-8">Image : <img th:src="@{'/img/'+${obj.proimg}}"/></div> -->
+              <div class="col-md-8">Image : <span th:text="${obj.proimg}"></span></div>
 		  	</div>
 		  	<div class="row">
 			     <div class="col-md-1">

@@ -1,8 +1,8 @@
-package com.form.dao;
+package com.extramarks.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.form.data.User;
+import com.extramarks.data.User;
 
 /** 
  * This interface provides the access of methods from JpaRepository */

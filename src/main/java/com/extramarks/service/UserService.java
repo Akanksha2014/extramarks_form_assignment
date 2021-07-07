@@ -1,4 +1,4 @@
-package com.form.service;
+package com.extramarks.service;
 
 import java.util.Optional;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.form.dao.UserDao;
-import com.form.data.User;
+import com.extramarks.dao.UserDao;
+import com.extramarks.data.User;
 
 /** This UserService class provides logic to operate on the data sent to and from another classes and client*/
 

@@ -1,4 +1,4 @@
-package com.form.controller;
+package com.extramarks.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.form.data.User;
-import com.form.service.UserService;
+import com.extramarks.data.User;
+import com.extramarks.service.UserService;
 
 /** 
  * This FormController class works as web request handler for our application which processes incoming requests,prepare model and returns the view*/
@@ -31,6 +32,11 @@ public class FormController {
 	
 	@Autowired
 	UserService userService;
+	
+	public final String UPLOAD_DIR = new ClassPathResource("/static/img/").getFile().getAbsolutePath();
+	public FormController() throws IOException{
+		
+	}
 	
 	//request to "/" will be handled by this mapping
 	@RequestMapping("/")       
@@ -47,18 +53,8 @@ public class FormController {
 	public String userInfo(User user, @RequestParam("image") MultipartFile file, Model model) throws IOException
 	{    
 		//processing and uploading files
-		if(file.isEmpty())
-		{
-			System.out.println("Empty file");
-		}
-		else
-		{
-			user.setProimg(file.getOriginalFilename());
-			File saveFile = new ClassPathResource("static/img").getFile();
-			Path path = Paths.get(saveFile.getAbsolutePath()+File.pathSeparator+file.getOriginalFilename());
-			Files.copy(file.getInputStream(),path , StandardCopyOption.REPLACE_EXISTING);
-			
-		}
+		Files.copy(file.getInputStream(), Paths.get(UPLOAD_DIR+File.pathSeparator+file.getOriginalFilename()),StandardCopyOption.REPLACE_EXISTING);
+		user.setProimg(ServletUriComponentsBuilder.fromCurrentContextPath().path("img:"+file.getOriginalFilename()).toUriString());
 		//saving the data in database
 		 userService.insertData(user);
 		 //adding the object to model for displaying and providing editing functionality

@@ -1,4 +1,4 @@
-package com.form.data;
+package com.extramarks.data;
 
 
 import javax.persistence.Entity;

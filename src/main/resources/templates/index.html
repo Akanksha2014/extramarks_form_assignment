@@ -30,7 +30,7 @@
 				<div class="row">
 					<div class="col-md-8">
 				    	<label for="mobile" class="form-label">Mobile</label>
-				        <input type="text" th:field="*{mobile}" class="form-control" placeholder="mobile number" id="mobile" required>
+				        <input type="text"  pattern="[789][0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9" th:field="*{mobile}" class="form-control" placeholder="mobile number" id="mobile" required>
 					</div>
 				</div>
 				<div class="row">
@@ -79,7 +79,7 @@
 								<div class="col-md-8">
 								  <div class="form-group">
 								    <label for="image">Upload Image</label>
-								    <input type="file" class="form-control-file" name="image" >
+								    <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control-file" name="image" >
 								  </div>
 				                </div>
 				                </div></div><br>
@@ -91,7 +91,6 @@
 								</div>
 			
 			</form>
-
 </div>
 <script>
 		function validation()

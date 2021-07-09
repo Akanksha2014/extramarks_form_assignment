@@ -34,11 +34,11 @@
 		  	</div>
 		  	<div class="row">
  		 	<div class="col-md-8" >Image : <img style="height:150px;width:150px" th:src="@{${obj.proimg}}" class="img-responsive" alt="Image"/></div>
-<!--        <div class="col-md-8">Image :<a th:href="@{${obj.proimg}}">Click here to view image</a></div>  -->
+      <div class="col-md-8">Image :<a th:href="@{${obj.proimg}}">Click here to view image</a></div>  
 		  	</div>
 		  	<div class="row">
 			     <div class="col-md-1">
-			    <a th:href="@{/editDetails/{id}(id=${obj.id})}" class="btn btn-primary"><label class="btn btn-primary">Edit</label></a>
+			    <a th:href="@{/editDetails/{id}(id=${obj.id})}"  class="btn btn-primary"><label class="btn btn-primary">Edit</label></a>
 			  </div></div>
 			
 		</div>

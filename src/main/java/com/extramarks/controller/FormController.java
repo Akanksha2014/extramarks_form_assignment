@@ -53,8 +53,8 @@ public class FormController {
 	public String userInfo(User user, @RequestParam("image") MultipartFile file, Model model) throws IOException
 	{    
 		//processing and uploading files
-		Files.copy(file.getInputStream(), Paths.get(UPLOAD_DIR+File.pathSeparator+file.getOriginalFilename()),StandardCopyOption.REPLACE_EXISTING);
-		user.setProimg(ServletUriComponentsBuilder.fromCurrentContextPath().path("img:"+file.getOriginalFilename()).toUriString());
+		Files.copy(file.getInputStream(), Paths.get(UPLOAD_DIR+"/"+file.getOriginalFilename()),StandardCopyOption.REPLACE_EXISTING);
+		user.setProimg(ServletUriComponentsBuilder.fromCurrentContextPath().path("img/"+file.getOriginalFilename()).toUriString());
 		//saving the data in database
 		 userService.insertData(user);
 		 //adding the object to model for displaying and providing editing functionality

@@ -18,13 +18,13 @@
 				<div class="row">
 					<div class="col-md-8">
 				    	<label for="name" class="form-label">Name</label>
-				        <input type="text" th:field="*{name}" class="form-control" required id="name" placeholder="Enter your name">
+				        <input type="text" th:field="*{name}" class="form-control" required id="name" placeholder="Enter your name" pattern="[A-Za-z ]{2,50}" title="Name should contain alphabets only and length in between 2-50">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8">
 				    	<label for="email" class="form-label">Email</label>
-				        <input type="email" th:field="*{email}" class="form-control" required placeholder="Enter your email id" id="email" >
+				        <input type="email" th:field="*{email}" class="form-control" required placeholder="Enter your email id" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Please put email id in valid format">
 					</div>
 				</div>
 				<div class="row">
